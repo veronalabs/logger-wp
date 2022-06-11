@@ -130,6 +130,12 @@ class Logger implements LoggerInterface
     public function __construct(array $config = [])
     {
         $this->setDefaultConfigGroup($config);
+
+        if (!did_action('init')) {
+            error_log('WordPress is not initialized! run logger into init action.');
+            return;
+        }
+
         $this->initLogDirectory();
         $this->initErrorHandler();
         $this->initAdmin();
@@ -235,6 +241,11 @@ class Logger implements LoggerInterface
      */
     public function addRecord(int $level, string $message, array $context = []): bool
     {
+        // Backward compatibility
+        if (!did_action('init')) {
+            return false;
+        }
+
         $logLevelName = $this->getLevelName($level);
         $context      = $context ? json_encode($context, JSON_PRETTY_PRINT) : '';
 
