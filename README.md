@@ -1,26 +1,27 @@
-# Monolog - Logging for PHP [![Continuous Integration](https://github.com/Seldaek/monolog/workflows/Continuous%20Integration/badge.svg?branch=main)](https://github.com/Seldaek/monolog/actions)
+# Logger WP - Logging for WordPress Based on PSR-3
 
-[![Total Downloads](https://img.shields.io/packagist/dt/monolog/monolog.svg)](https://packagist.org/packages/monolog/monolog)
-[![Latest Stable Version](https://img.shields.io/packagist/v/monolog/monolog.svg)](https://packagist.org/packages/monolog/monolog)
+[![Total Downloads](https://img.shields.io/packagist/dt/veronalabs/logger-wp.svg)](https://packagist.org/packages/veronalabs/logger-wp)
+[![Latest Stable Version](https://img.shields.io/packagist/v/veronalabs/logger-wp.svg)](https://packagist.org/packages/veronalabs/logger-wp)
 
-
-Monolog sends your logs to files, sockets, inboxes, databases and various
-web services. See the complete list of handlers below. Special handlers
-allow you to build advanced logging strategies.
+Logger WP sends your logs to wp-content directory.
 
 This library implements the [PSR-3](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-3-logger-interface.md)
-interface that you can type-hint against in your own libraries to keep
-a maximum of interoperability. You can also use it in your applications to
-make sure you can always use another compatible logger at a later time.
-As of 1.11.0 Monolog public APIs will also accept PSR-3 log levels.
-Internally Monolog still uses its own level scheme since it predates PSR-3.
+interface that you can type-hint against in your own libraries to keep a maximum of interoperability.
+
+> ⚠️ This package is currently in beta. Breaking changes may occur until version 1.0 is tagged.
+
+## Todo
+
+- Add support admin log viewer
+- Add support PHP errors handler
+- Add logger exception handler
 
 ## Installation
 
 Install the latest version with
 
 ```bash
-$ composer require monolog/monolog
+$ composer require veronalabs/logger-wp
 ```
 
 ## Basic Usage
@@ -28,14 +29,34 @@ $ composer require monolog/monolog
 ```php
 <?php
 
-use Monolog\Logger;
-use Monolog\Handler\StreamHandler;
+use LoggerWp\Logger;
 
 // create a log channel
-$log = new Logger('name');
-$log->pushHandler(new StreamHandler('path/to/your.log', Logger::WARNING));
+$logger = new Logger([
+    'channel'  => 'wpsms', // default dev
+    'dir_name' => 'wpsms-logs', // wp-content/uploads/wpsms-logs
+]);
 
-// add records to the log
-$log->warning('Foo');
-$log->error('Bar');
+$logger->warning('Foo');
+$logger->warning('Foo with context', [
+    'name' => 'Sarah',
+    'age'  => '23',
+]);
+
+$logger->setChannel('api');
+$logger->error('Twilio encountered issue!');
 ```
+
+## About
+
+### Requirements
+
+- Logger WP `^1.0` works with PHP 7.4 or above.
+
+### Submitting bugs and feature requests
+
+Bugs and feature request are tracked on [GitHub](https://github.com/veronalabs/logger-wp/issues)
+
+### License
+
+Logger WP is licensed under the MIT License - see the [LICENSE](LICENSE) file for details

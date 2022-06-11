@@ -8,7 +8,6 @@
 namespace LoggerWp;
 
 use LoggerWp\Service\AdminLogViewer;
-use Monolog\Handler\HandlerInterface;
 use Psr\Log\LoggerInterface;
 use Psr\Log\InvalidArgumentException;
 use Psr\Log\LogLevel;
@@ -76,16 +75,6 @@ class Logger implements LoggerInterface
     public const EMERGENCY = 600;
 
     /**
-     * Monolog API version
-     *
-     * This is only bumped when API breaks are done and should
-     * follow the major version of the library
-     *
-     * @var int
-     */
-    public const API = 2;
-
-    /**
      * This is a static variable and not a constant to serve as an extension point for custom levels
      *
      * @var array<int, string> $levels Logging levels with the levels as key
@@ -107,13 +96,6 @@ class Logger implements LoggerInterface
      * @var string
      */
     protected $name;
-
-    /**
-     * The handler stack
-     *
-     * @var HandlerInterface[]
-     */
-    protected $handlers;
 
     /**
      * Processors that will process all log records
