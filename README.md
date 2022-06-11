@@ -10,11 +10,14 @@ interface that you can type-hint against in your own libraries to keep a maximum
 
 > ⚠️ This package is currently in beta. Breaking changes may occur until version 1.0 is tagged.
 
-## Todo
+## Features
 
-- Add support admin log viewer
-- Add support PHP errors handler
-- Add logger exception handler
+* Protect the log files by .htaccess and hash the file name
+* Support custom channel name
+* Support custom log directory name
+* Support admin log viewer (TODO)
+* Support PHP errors handler (TODO)
+* Support logger exception handler (TODO)
 
 ## Installation
 
