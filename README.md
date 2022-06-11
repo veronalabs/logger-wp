@@ -36,8 +36,8 @@ use LoggerWp\Logger;
 
 // create a log channel
 $logger = new Logger([
-    'channel'  => 'wpsms', // default dev
-    'dir_name' => 'wpsms-logs', // wp-content/uploads/wpsms-logs
+    'channel'  => 'plugin', // default dev
+    'dir_name' => 'wpsms-logs', // wp-content/uploads/wpsms-logs/plugin-2022-06-11-37718a3a6b5ee53761291cf86edc9e10.log
 ]);
 
 $logger->warning('Foo');
@@ -46,7 +46,8 @@ $logger->warning('Foo with context', [
     'age'  => '23',
 ]);
 
-$logger->setChannel('api');
+$logger->setChannel('api'); // wp-content/uploads/wpsms-logs/api-2022-06-11-37718a3a6b5ee53761291cf86edc9e10
+
 $logger->error('Twilio encountered issue!');
 ```
 
