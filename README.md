@@ -1,9 +1,9 @@
-# Logger WP - Logging for WordPress Based on PSR-3
+# LoggerWP - Logger for WordPress Based on PSR-3
 
 [![Total Downloads](https://img.shields.io/packagist/dt/veronalabs/logger-wp.svg)](https://packagist.org/packages/veronalabs/logger-wp)
 [![Latest Stable Version](https://img.shields.io/packagist/v/veronalabs/logger-wp.svg)](https://packagist.org/packages/veronalabs/logger-wp)
 
-Logger WP sends your logs to wp-content directory.
+LoggerWP sends your logs to wp-content directory.
 
 This library implements the [PSR-3](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-3-logger-interface.md)
 interface that you can type-hint against in your own libraries to keep a maximum of interoperability.
@@ -51,7 +51,7 @@ $logger->error('Twilio encountered issue!');
 
 ### Requirements
 
-- Logger WP `^1.0` works with PHP 7.4 or above.
+- LoggerWP `^1.0` works with PHP 7.4 or above.
 
 ### Submitting bugs and feature requests
 
@@ -59,4 +59,4 @@ Bugs and feature request are tracked on [GitHub](https://github.com/veronalabs/l
 
 ### License
 
-Logger WP is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+LoggerWP is licensed under the MIT License - see the [LICENSE](LICENSE) file for details

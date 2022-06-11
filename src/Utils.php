@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the Logger WP package.
+ * This file is part of the LoggerWP package.
  *
  * License: MIT License
  */

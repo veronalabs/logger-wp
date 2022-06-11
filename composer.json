@@ -1,6 +1,6 @@
 {
     "name": "veronalabs/logger-wp",
-    "description": "WordPress logger based on PSR-3",
+    "description": "Logger for WordPress Based on PSR-3",
     "type": "library",
     "require": {
         "psr/log": "^1.1"
@@ -14,7 +14,7 @@
     "authors": [
         {
             "name": "Mostafa Soufi",
-            "email": "mst404@gmail.com"
+            "email": "mostafa@veronalabs.com"
         }
     ]
 }

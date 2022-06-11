@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the Logger WP package.
+ * This file is part of the LoggerWP package.
  *
  * License: MIT License
  */
@@ -11,7 +11,7 @@ use Psr\Log\LoggerInterface;
 use Psr\Log\LogLevel;
 
 /**
- * Logger WP error handler
+ * LoggerWP error handler
  *
  * A facility to enable logging of runtime errors, exceptions and fatal errors.
  *
@@ -123,7 +123,7 @@ class ErrorHandler
 
     /**
      * @param LogLevel::*|null $level              a LogLevel::* constant, null to use the default LogLevel::ALERT
-     * @param int $reservedMemorySize Amount of KBs to reserve in memory so that it can be freed when handling fatal errors giving Logger WP some room in memory to get its job done
+     * @param int $reservedMemorySize Amount of KBs to reserve in memory so that it can be freed when handling fatal errors giving LoggerWP some room in memory to get its job done
      */
     public function registerFatalHandler($level = null, int $reservedMemorySize = 20): self
     {

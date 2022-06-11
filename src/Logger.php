@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the Logger WP package.
+ * This file is part of the LoggerWP package.
  *
  * License: MIT License
  */
@@ -13,7 +13,7 @@ use Psr\Log\InvalidArgumentException;
 use Psr\Log\LogLevel;
 
 /**
- * Logger WP channel
+ * LoggerWP channel
  *
  * It contains a stack of Handlers and a stack of Processors,
  * and uses them to store records that are added to it.

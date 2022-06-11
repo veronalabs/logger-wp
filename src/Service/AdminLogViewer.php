@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the Logger WP package.
+ * This file is part of the LoggerWP package.
  *
  * License: MIT License
  */
@@ -8,7 +8,7 @@
 namespace LoggerWp\Service;
 
 /**
- * Logger WP admin log viewer
+ * LoggerWP admin log viewer
  *
  * A facility to add new admin menu under Tools for viewing the logs and to display the logs in the admin area.
  *
