@@ -1,0 +1,20 @@
+{
+    "name": "veronalabs/logger-wp",
+    "description": "WordPress logger based on PSR-3",
+    "type": "library",
+    "require": {
+        "psr/log": "^1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "LoggerWp\\": "src/"
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mostafa Soufi",
+            "email": "mst404@gmail.com"
+        }
+    ]
+}
