@@ -3,6 +3,8 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/veronalabs/logger-wp.svg)](https://packagist.org/packages/veronalabs/logger-wp)
 [![Latest Stable Version](https://img.shields.io/packagist/v/veronalabs/logger-wp.svg)](https://packagist.org/packages/veronalabs/logger-wp)
 
+![alt text](https://i.ibb.co/MpvMQYS/screenshot-wordpress-dev-2022-06-14-19-31-36.png)
+
 LoggerWP sends your logs to wp-content directory.
 
 This library implements the [PSR-3](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-3-logger-interface.md)
@@ -15,7 +17,7 @@ interface that you can type-hint against in your own libraries to keep a maximum
 * Protect the log files by .htaccess and hash the file name
 * Support custom channel name
 * Support custom log directory name
-* Support admin log viewer (TODO)
+* Support admin log viewer
 * Support PHP errors handler (TODO)
 * Support logger exception handler (TODO)
 

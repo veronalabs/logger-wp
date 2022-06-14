@@ -21,6 +21,8 @@ use Psr\Log\LogLevel;
  * @phpstan-type Level Logger::DEBUG|Logger::INFO|Logger::NOTICE|Logger::WARNING|Logger::ERROR|Logger::CRITICAL|Logger::ALERT|Logger::EMERGENCY
  * @phpstan-type LevelName 'DEBUG'|'INFO'|'NOTICE'|'WARNING'|'ERROR'|'CRITICAL'|'ALERT'|'EMERGENCY'
  * @phpstan-type Record array{message: string, context: mixed[], level: Level, level_name: LevelName, channel: string, datetime: \DateTimeImmutable, extra: mixed[]}
+ *
+ * @todo ErrorHandler is not implemented yet.
  */
 class Logger implements LoggerInterface
 {
@@ -93,25 +95,6 @@ class Logger implements LoggerInterface
     ];
 
     /**
-     * @var string
-     */
-    protected $name;
-
-    /**
-     * Processors that will process all log records
-     *
-     * To process records of a single handler instead, add the processor on that specific handler
-     *
-     * @var callable[]
-     */
-    protected $processors;
-
-    /**
-     * @var DateTimeZone
-     */
-    protected $timezone;
-
-    /**
      * Default logger configuration options
      *
      * @var array
@@ -177,7 +160,7 @@ class Logger implements LoggerInterface
      */
     private function initErrorHandler()
     {
-        ErrorHandler::register($this);
+        //ErrorHandler::register($this);
     }
 
     /**
@@ -187,9 +170,8 @@ class Logger implements LoggerInterface
      */
     private function initAdmin()
     {
-        if (WP_DEBUG) {
-            AdminLogViewer::getInstance();
-        }
+        AdminLogViewer::getInstance()->setConfig($this->config)
+            ->handleActions();
     }
 
     /**
@@ -249,7 +231,7 @@ class Logger implements LoggerInterface
         $logLevelName = $this->getLevelName($level);
         $context      = $context ? json_encode($context, JSON_PRETTY_PRINT) : '';
 
-        $logContent = sprintf('[%s] [%s]: %s %s%s',
+        $logContent = sprintf('[%s] [%s] %s %s%s',
             date('Y-m-d H:i:s'),
             $logLevelName,
             $message,
