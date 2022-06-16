@@ -174,7 +174,7 @@ class AdminLogViewer
                 </div>
 
                 <div id="log-clipboard">
-                    <button type="button" class="button" onclick="copyToClipboard()">Copy site info to clipboard</button>
+                    <button type="button" class="button" onclick="copyToClipboard()">Copy log to clipboard</button>
                 </div>
             <?php else : ?>
                 <div class="updated inline"><p><?php esc_html_e('There are currently no logs to view.'); ?></p></div>
