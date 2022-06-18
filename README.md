@@ -19,7 +19,7 @@ interface that you can type-hint against in your own libraries to keep a maximum
 * Support custom log directory name
 * Support admin log viewer
 * Support PHP errors handler (TODO)
-* Support logger exception handler (TODO)
+* Support logger exception handler
 
 ## Installation
 
@@ -53,6 +53,31 @@ $logger->setChannel('api'); // wp-content/uploads/wpsms-logs/api-2022-06-11-3771
 $logger->error('Twilio encountered issue!');
 ```
 
+## Logger Exception handler
+```php
+use LoggerWp\Exception\LogerException;
+
+try {
+
+    throw new LogerException('API error!');
+
+} catch (Exception $e) {
+
+}
+```
+
+Or
+```php
+use LoggerWp\Logger;
+
+try {
+    
+    throw new Exception('API error!');
+    
+} catch (Exception $e) {
+    Logger::getInstance()->warning($e->getMessage());
+}
+```
 ## About
 
 ### Requirements

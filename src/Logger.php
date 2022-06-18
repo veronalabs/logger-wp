@@ -107,6 +107,11 @@ class Logger implements LoggerInterface
     ];
 
     /**
+     * @var array<HandlerInterface>
+     */
+    public static $instance;
+
+    /**
      *
      * @param array $config Configuration options
      */
@@ -122,6 +127,18 @@ class Logger implements LoggerInterface
         $this->initLogDirectory();
         $this->initErrorHandler();
         $this->initAdmin();
+    }
+
+    /**
+     * @return Logger
+     */
+    public function getInstance()
+    {
+        if (!isset(self::$instance)) {
+            self::$instance = new self();
+        }
+
+        return self::$instance;
     }
 
     /**
