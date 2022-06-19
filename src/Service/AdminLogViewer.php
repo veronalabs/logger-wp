@@ -37,9 +37,7 @@ class AdminLogViewer
      */
     public function __construct()
     {
-        if (WP_DEBUG) {
-            add_action('admin_menu', [$this, 'registerMenu']);
-        }
+        add_action('admin_menu', [$this, 'registerMenu']);
     }
 
     /**
@@ -78,6 +76,9 @@ class AdminLogViewer
     {
         if (isset($_GET['page']) && $_GET['page'] == 'logger-wp' && isset($_GET['action']) && $_GET['action'] === 'delete' && isset($_GET['log'])) {
             $log = sanitize_text_field($_GET['log']);
+
+            // Verify nonce
+            check_admin_referer('remove_log');
 
             if (file_exists(Utils::getLogDirectory($this->config['dir_name']) . '/' . $log)) {
                 unlink(Utils::getLogDirectory($this->config['dir_name']) . '/' . $log);

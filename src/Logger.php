@@ -187,8 +187,10 @@ class Logger implements LoggerInterface
      */
     private function initAdmin()
     {
-        AdminLogViewer::getInstance()->setConfig($this->config)
-            ->handleActions();
+        if (WP_DEBUG && is_admin()) {
+            $loggerViewer = AdminLogViewer::getInstance();
+            $loggerViewer->setConfig($this->config)->handleActions();
+        }
     }
 
     /**
