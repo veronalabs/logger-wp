@@ -38,8 +38,9 @@ use LoggerWp\Logger;
 
 // create a log channel
 $logger = new Logger([
-    'channel'  => 'plugin', // default dev
-    'dir_name' => 'wpsms-logs', // wp-content/uploads/wpsms-logs/plugin-2022-06-11-37718a3a6b5ee53761291cf86edc9e10.log
+    'dir_name'            => 'plugin', // default dev
+    'channel'             => 'wpsms-logs', // wp-content/uploads/wpsms-logs/plugin-2022-06-11-37718a3a6b5ee53761291cf86edc9e10.log
+    'days_to_retain_logs' => 30
 ]);
 
 $logger->warning('Foo');
@@ -54,6 +55,7 @@ $logger->error('Twilio encountered issue!');
 ```
 
 ## Logger Exception handler
+
 ```php
 use LoggerWp\Exception\LogerException;
 
@@ -67,6 +69,7 @@ try {
 ```
 
 Or
+
 ```php
 use LoggerWp\Logger;
 
@@ -78,6 +81,7 @@ try {
     Logger::getInstance()->warning($e->getMessage());
 }
 ```
+
 ## About
 
 ### Requirements

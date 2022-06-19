@@ -100,10 +100,10 @@ class Logger implements LoggerInterface
      * @var array
      */
     private $config = [
-        'level'    => self::DEBUG,
-        'bubble'   => true,
-        'dir_name' => 'logger-wp',
-        'channel'  => 'dev',
+        'level'               => self::DEBUG,
+        'dir_name'            => 'logger-wp',
+        'channel'             => 'dev',
+        'days_to_retain_logs' => 30,
     ];
 
     /**
@@ -166,6 +166,23 @@ class Logger implements LoggerInterface
             if (!file_exists($htaccess_file) and $handle = @fopen($htaccess_file, 'w')) {
                 fwrite($handle, "Deny from all\n");
                 fclose($handle);
+            }
+        }
+
+        /**
+         * Delete logs older than x days
+         */
+        $logs = glob(path_join($logDirectoryName, '*.log'));
+        $days = $this->config['days_to_retain_logs'];
+
+        if ($days > 0) {
+            $days = $days * 24 * 60 * 60;
+            $now  = time();
+
+            foreach ($logs as $log) {
+                if ($now - filemtime($log) > $days) {
+                    unlink($log);
+                }
             }
         }
     }
