@@ -10,8 +10,6 @@ LoggerWP sends your logs to wp-content directory.
 This library implements the [PSR-3](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-3-logger-interface.md)
 interface that you can type-hint against in your own libraries to keep a maximum of interoperability.
 
-> ⚠️ This package is currently in beta. Breaking changes may occur until version 1.0 is tagged.
-
 ## Features
 
 * Protect the log files by .htaccess and hash the file name
@@ -26,7 +24,7 @@ interface that you can type-hint against in your own libraries to keep a maximum
 Install the latest version with
 
 ```bash
-$ composer require veronalabs/logger-wp
+composer require veronalabs/logger-wp
 ```
 
 ## Basic Usage
@@ -38,9 +36,9 @@ use LoggerWp\Logger;
 
 // create a log channel
 $logger = new Logger([
-    'dir_name'            => 'plugin', // default dev
-    'channel'             => 'wpsms-logs', // wp-content/uploads/wpsms-logs/plugin-2022-06-11-37718a3a6b5ee53761291cf86edc9e10.log
-    'days_to_retain_logs' => 30
+    'dir_name'  => 'plugin', // default dev
+    'channel'   => 'wpsms-logs', // wp-content/uploads/wpsms-logs/plugin-2022-06-11-37718a3a6b5ee53761291cf86edc9e10.log
+    'logs_days' => 30
 ]);
 
 $logger->warning('Foo');

@@ -100,10 +100,10 @@ class Logger implements LoggerInterface
      * @var array
      */
     private $config = [
-        'level'               => self::DEBUG,
-        'dir_name'            => 'logger-wp',
-        'channel'             => 'dev',
-        'days_to_retain_logs' => 30,
+        'level'     => self::DEBUG,
+        'dir_name'  => 'logger-wp',
+        'channel'   => 'dev',
+        'logs_days' => 30,
     ];
 
     /**
@@ -173,7 +173,7 @@ class Logger implements LoggerInterface
          * Delete logs older than x days
          */
         $logs = glob(path_join($logDirectoryName, '*.log'));
-        $days = $this->config['days_to_retain_logs'];
+        $days = $this->config['logs_days'];
 
         if ($days > 0) {
             $days = $days * 24 * 60 * 60;
