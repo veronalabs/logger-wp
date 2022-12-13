@@ -36,8 +36,8 @@ use LoggerWp\Logger;
 
 // create a log channel
 $logger = new Logger([
-    'dir_name'  => 'plugin', // default dev
-    'channel'   => 'wpsms-logs', // wp-content/uploads/wpsms-logs/plugin-2022-06-11-37718a3a6b5ee53761291cf86edc9e10.log
+    'dir_name'  => 'wpsms-logs', // wp-content/uploads/wpsms-logs/plugin-2022-06-11-37718a3a6b5ee53761291cf86edc9e10.log
+    'channel'   => 'plugin', // default dev
     'logs_days' => 30
 ]);
 
